@@ -18,5 +18,6 @@ COPY . .
 ENV PORT=8080
 EXPOSE 8080
 
-# Use shell form so $PORT is expanded at container start.
-CMD gunicorn app:app --bind 0.0.0.0:$PORT
+# Port/bind is resolved in gunicorn.conf.py (reads $PORT), so no shell
+# expansion is needed here. Exec form is used for clean signal handling.
+CMD ["gunicorn", "app:app", "-c", "gunicorn.conf.py"]
