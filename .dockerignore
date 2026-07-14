@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.smoketest_venv/
+venv/
+.venv/
+env/
+*.pdf
+.git/
+.gitignore
+.DS_Store
